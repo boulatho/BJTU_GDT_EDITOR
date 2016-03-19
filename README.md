@@ -41,12 +41,13 @@ cf. README_Files directory:
 
 - API socket
 - API thread
-- Sever
-- Client (Game)
+- Server
+- Clients (Game + Editor)
 
 ##MILESTONES##
 
 - Creation of the circle game
+- Creation of the server
 - Creation of the editor
 
 ##SCREENSHOTS##
