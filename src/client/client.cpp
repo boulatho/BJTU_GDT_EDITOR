@@ -6,6 +6,9 @@
 #include		"../lib/SocketAPI/Select/FDSet/FDSet.hpp"
 #include		"../lib/SocketAPI/Select/Select.hpp"
 
+#ifdef			WIN32
+#include		<WinSock2.h>
+#endif
 int			main(int ac, char **av) {
     SocketTCPClient	client;
     sf::RenderWindow	window(sf::VideoMode(800, 800), "SFML color game");
@@ -27,8 +30,10 @@ int			main(int ac, char **av) {
 	std::cout << "./client host port name" << std::endl;
 	return (0);
     }
-    client.start();
-    client.connectToServer(av[1], atoi(av[2]));
+	if (!client.start())
+		return -1;
+	if (!client.connectToServer(av[1], atoi(av[2])))
+		return -1;
     color = sf::Color::Red;
     color2 = sf::Color::Yellow;
     color3 = sf::Color::Green;
@@ -39,7 +44,6 @@ int			main(int ac, char **av) {
     {
 	fdSet.zero();
 	fdSet.set(&client);
-	fdSet.set(0);
 	tv.tv_sec = 1;
 	tv.tv_usec = 0;
 	if (!Select::call(&fdSet, NULL, &tv))
