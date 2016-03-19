@@ -4,7 +4,7 @@
 #include			"../lib/SocketAPI/SocketTCPClient.hpp"
 #include			"../lib/SocketAPI/Select/FDSet/FDSet.hpp"
 #include			"../lib/SocketAPI/Select/Select.hpp"
-#include			"Thread.hpp"
+#include			"../lib/Thread/Thread.hpp"
 
 #ifdef			WIN32
 #include		<WinSock2.h>

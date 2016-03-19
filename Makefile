@@ -26,7 +26,9 @@ SRCLIBRARY	=	./src/lib/SocketAPI/SocketTCP.cpp			\
 			./src/lib/SocketAPI/Select/Select.cpp			\
 			./src/lib/SocketAPI/Select/SelectUnix.cpp		\
 			./src/lib/SocketAPI/Select/FDSet/FDSet.cpp		\
-			./src/lib/SocketAPI/Select/FDSet/FDSetUnix.cpp
+			./src/lib/SocketAPI/Select/FDSet/FDSetUnix.cpp		\
+			./src/lib/Thread/Thread.cpp				\
+			./src/lib/Thread/ThreadUnix.cpp
 
 LIBRARYOBJS	=	$(SRCLIBRARY:.cpp=.o)
 
